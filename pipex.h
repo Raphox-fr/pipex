@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:10:50 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/23 17:12:16 by raphox           ###   ########.fr       */
+/*   Updated: 2024/07/24 14:12:47 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <fcntl.h>
 # include "../pipex/libft/libft.h"
 
+int	main(int ac, char **av, char **env);
 
+int execute(int ac, char **av);
+
+char	**ft_split(char *s, char c);
 
 #endif
