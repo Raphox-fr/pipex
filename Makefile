@@ -6,13 +6,13 @@
 #    By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 15:01:28 by raphox            #+#    #+#              #
-#    Updated: 2024/07/24 18:00:17 by rafaria          ###   ########.fr        #
+#    Updated: 2024/07/30 11:02:10 by rafaria          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	pipex
 
-SRCS			=	pipex.c split.c
+SRCS			=	pipex.c tools.c split.c
 
 OBJS			=	${SRCS:.c=.o}
 
@@ -22,7 +22,7 @@ CFLAGS		=	-Wall -Werror -Wextra -g3
 
 LIBFT_DIR	=	libft
 
-LIBFT_LIB	=	$(LIBFT_DIR)/libft.a
+LIBFT_LIB	=	$(LIBFT_DIR)
 
 all			:	${NAME}
 

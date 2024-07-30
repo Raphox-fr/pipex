@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 17:10:50 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/24 18:38:37 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/30 11:05:22 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@
 # include <sys/wait.h>
 # include <unistd.h>
 
-int		main(int a, char **av, char **env);
+void	error(void);
+int		main(int ac, char **av, char **envp);
 
-int		execute(char *string, char **envp);
-char 	*find_path(char *cmd, char **envp);
+void	first_process(char **argv, char **envp, int *fd);
+void	second_process(char **argv, char **envp, int *fd);
+
+void		execute(char *string, char **envp);
+char	*find_path(char *cmd, char **envp);
 char	**ft_split(char *s, char c);
 
 #endif
