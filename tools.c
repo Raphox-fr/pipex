@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:38:34 by rafaria           #+#    #+#             */
-/*   Updated: 2024/07/30 15:03:04 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/30 18:14:17 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,14 @@ char	*find_path(char *cmd, char **envp)
 	while (paths[i])
 	{
 		part_path = ft_strjoin(paths[i], "/");
+		if (part_path == NULL)
+			return (NULL);
 		path = ft_strjoin(part_path, cmd);
+		if (path == NULL)
+		{
+			free(part_path);
+			free(path);
+		}
 		free(part_path);
 		if (access(path, F_OK) == 0)
 			return (path);
