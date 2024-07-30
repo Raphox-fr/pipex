@@ -1,1 +1,12 @@
-14
+infile.txt$
+libft$
+Makefile$
+outfile.txt$
+pipex$
+pipex.c$
+pipex.h$
+pipex.o$
+split.c$
+split.o$
+tools.c$
+tools.o$

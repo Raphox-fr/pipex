@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:45:57 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/30 10:57:25 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/30 14:07:59 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ void	first_process(char **argv, char **envp, int *fd)
 	filein = open(argv[1], O_RDONLY, 0777);
 	if (filein == -1)
 		error();
-	dup2(fd[1], STDOUT_FILENO);
-	// toute sortie envoyée vers la sortie standard sera désormais redirigée
-	// vers le pipe, et non plus affichée sur l'écran.
 	dup2(filein, STDIN_FILENO);
-	// L entree se fait a partir du fichier
+	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
 	execute(argv[2], envp);
 }
+
 void	second_process(char **argv, char **envp, int *fd)
 {
 	int	fileout;
@@ -42,8 +40,8 @@ void	second_process(char **argv, char **envp, int *fd)
 
 int	main(int ac, char **av, char **envp)
 {
-	int fd[2];
-	pid_t pid1;
+	int		fd[2];
+	pid_t	pid1;
 
 	if (ac == 5)
 	{
