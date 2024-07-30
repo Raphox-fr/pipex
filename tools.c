@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:38:34 by rafaria           #+#    #+#             */
-/*   Updated: 2024/07/30 14:03:44 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/30 15:03:04 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	execute(char *string, char **envp)
 
 	i = 0;
 	cmd = ft_split(string, ' ');
+	if (cmd == NULL)
+		error();
 	path = find_path(cmd[0], envp);
 	if (path == NULL)
 	{

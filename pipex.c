@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:45:57 by raphox            #+#    #+#             */
-/*   Updated: 2024/07/30 14:47:51 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/07/30 17:41:09 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	first_process(char **argv, char **envp, int *fd)
 		error();
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(filein, STDIN_FILENO);
+	close(fd[1]);
 	close(fd[0]);
 	execute(argv[2], envp);
 }
@@ -35,6 +36,7 @@ void	second_process(char **argv, char **envp, int *fd)
 	dup2(fileout, STDOUT_FILENO);
 	dup2(fd[0], STDIN_FILENO);
 	close(fd[1]);
+	close(fd[0]);
 	execute(argv[3], envp);
 }
 
@@ -53,10 +55,13 @@ int	main(int ac, char **av, char **envp)
 			error();
 		if (pid1 == 0)
 			first_process(av, envp, fd);
+		pid2 = fork();
+		if (pid2 == -1)
+			error();
 		if (pid2 == 0)
 			second_process(av, envp, fd);
 		waitpid(pid1, NULL, 0);
-		waitpid(pid1, NULL, 0);
+		waitpid(pid2, NULL, 0);
 	}
 	else
 		write(1, "Bad arguments, do better\n", 26);
