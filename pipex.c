@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:45:57 by raphox            #+#    #+#             */
-/*   Updated: 2024/09/10 15:26:04 by raphox           ###   ########.fr       */
+/*   Updated: 2025/02/07 11:37:21 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+// COUCOCUCOUCOUCUCOUCCOUCUOUCOCUu
 #include "pipex.h"
 
 void	first_process(char **argv, char **envp, int *fd)
